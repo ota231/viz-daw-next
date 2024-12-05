@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useState, forwardRef, useEffect } from 'react';
 import classNames from 'classnames';
 import Compressor from 'compressorjs';

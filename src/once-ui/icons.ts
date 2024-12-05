@@ -19,6 +19,10 @@ import {
 	HiInformationCircle,
 	HiExclamationCircle,
 	HiCheckCircle,
+	HiMiniHome,
+	HiAdjustmentsVertical,
+	HiBriefcase,
+	HiHandRaised,
 } from "react-icons/hi2";
 
 import {
@@ -47,4 +51,8 @@ export const iconLibrary: Record<string, IconType> = {
 	arrowUpRight: HiArrowUpRight,
 	minus: HiMiniMinus,
 	plus: HiMiniPlus,
+	home: HiMiniHome,
+	settings: HiAdjustmentsVertical,
+	briefcase: HiBriefcase,
+	bye: HiHandRaised,
 };
