@@ -167,7 +167,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/fixes/screen-reader-improved"
                             selected={pathname === 'overview'}>
                             <Flex
                                 padding="4" gap="12"
@@ -183,7 +183,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/fixes/haptic-feedback"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
@@ -199,7 +199,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/fixes/sonification"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
@@ -225,23 +225,7 @@ const Sidebar: React.FC = ({
                                     height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
-                                Vocal Commands
-                            </Flex>
-                        </ToggleButton>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            href=""
-                            selected={pathname === 'projects'}>
-                            <Flex
-                                padding="4" gap="12"
-                                alignItems="center"
-                                textVariant="label-default-s">
-                                <Flex
-                                    height="1" width="16"
-                                    alpha="neutral-strong">
-                                </Flex>
-                                AI ...?
+                                AI Assistant
                             </Flex>
                         </ToggleButton>
                     </Flex>
