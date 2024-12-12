@@ -44,7 +44,7 @@ export default function Home() {
 							</Heading>
 							<Button
 								id="readDocs"
-								href="./learning"
+								href="./background"
 								variant="secondary">
 								<Flex alignItems="center">
 									Let's Learn!

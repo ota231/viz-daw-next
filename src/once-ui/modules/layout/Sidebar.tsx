@@ -78,7 +78,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/background/what-is-daw"
                             selected={pathname === 'users'}>
                             <Flex
                                 padding="4" gap="12"
@@ -94,7 +94,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/background/simple-preview"
                             selected={pathname === 'roles'}>
                             <Flex
                                 padding="4"
@@ -111,7 +111,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/background/add-more-stuff"
                             selected={pathname === 'permissions'}>
                             <Flex
                                 padding="4" gap="12"
@@ -127,7 +127,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/background/screen-reader"
                             selected={pathname === 'permissions'}>
                             <Flex
                                 padding="4" gap="12"
