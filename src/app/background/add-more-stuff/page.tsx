@@ -1,3 +1,3 @@
 export default function AddMoreStuff() {
-    return <p>buttons, sliders or graphs. panning, automation, MIDI controls, EQ (Equalizer), Compressor, Reverb, Delay, volume, Clip editing</p>
+    return <p>buttons, sliders, graphs. volume, panning, automation, MIDI controls, EQ, compressor, delay, track clipping</p>
 }

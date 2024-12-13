@@ -215,7 +215,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/fixes/ai-assistant"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
