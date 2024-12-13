@@ -35,8 +35,8 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="./"
-                            selected={true}>
+                            href=".."
+                            selected={false}>
                             <Flex
                                 padding="4"
                                 alignItems="center"

@@ -44,7 +44,7 @@ export default function Home() {
 							</Heading>
 							<Button
 								id="readDocs"
-								href="./background"
+								href="./background/what-is-daw"
 								variant="secondary">
 								<Flex alignItems="center">
 									Let's Learn!
