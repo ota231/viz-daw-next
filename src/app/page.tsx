@@ -44,7 +44,7 @@ export default function Home() {
 							</Heading>
 							<Button
 								id="readDocs"
-								href="./background/what-is-daw"
+								href="/learning/what-is-daw"
 								variant="secondary">
 								<Flex alignItems="center">
 									Let's Learn!

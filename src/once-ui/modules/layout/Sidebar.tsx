@@ -78,7 +78,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/background/what-is-daw"
+                            href="/learning/what-is-daw"
                             selected={pathname === 'users'}>
                             <Flex
                                 padding="4" gap="12"
@@ -94,7 +94,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/background/simple-preview"
+                            href="/learning/simple-preview"
                             selected={pathname === 'roles'}>
                             <Flex
                                 padding="4"
@@ -111,7 +111,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/background/add-more-stuff"
+                            href="/learning/add-more-stuff"
                             selected={pathname === 'permissions'}>
                             <Flex
                                 padding="4" gap="12"
@@ -127,7 +127,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/background/screen-reader"
+                            href="/learning/screen-reader"
                             selected={pathname === 'permissions'}>
                             <Flex
                                 padding="4" gap="12"
@@ -167,7 +167,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/fixes/screen-reader-improved"
+                            href="/learning/screen-reader-improved"
                             selected={pathname === 'overview'}>
                             <Flex
                                 padding="4" gap="12"
@@ -183,7 +183,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/fixes/haptic-feedback"
+                            href="/learning/haptic-feedback"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
@@ -199,7 +199,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/fixes/sonification"
+                            href="/learning/sonification"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
@@ -215,7 +215,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/fixes/ai-assistant"
+                            href="/learning/ai-assistant"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
@@ -257,7 +257,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/bye"
+                            href="/learning/bye"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
