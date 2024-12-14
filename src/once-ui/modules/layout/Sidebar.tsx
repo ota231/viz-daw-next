@@ -111,7 +111,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/learning/add-more-stuff"
+                            href="/learning/additional-features"
                             selected={pathname === 'permissions'}>
                             <Flex
                                 padding="4" gap="12"
@@ -121,7 +121,7 @@ const Sidebar: React.FC = ({
                                     height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
-                                Add some more stuff
+                                Additional Features
                             </Flex>
                         </ToggleButton>
                         <ToggleButton

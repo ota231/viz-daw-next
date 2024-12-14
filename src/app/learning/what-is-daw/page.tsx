@@ -6,7 +6,6 @@ export default function WhatIsDaw() {
 
         <Flex
             direction='column'>
-
                     <Flex
                       as="header"
                       paddingY='16'
@@ -134,6 +133,7 @@ export default function WhatIsDaw() {
                       margin='16'
                       padding='16'
                       justifyContent='right'
+                      fillWidth
                     >
                       <Button
                         id="next"
