@@ -1,13 +1,15 @@
 import { Flex, Text, Button, Arrow } from '@/once-ui/components';
 import { Sidebar } from '@/once-ui/modules';
+import React from 'react';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+export default function Layout({ children} :  {children: React.ReactNode} ) {
 
   return (
     <Flex direction="row" fillHeight fillWidth>
       <Sidebar />
 
-      <Flex direction="column" fillWidth>        
+      <Flex direction="column" fillWidth>
 
         {/* Main Content */}
         <Flex

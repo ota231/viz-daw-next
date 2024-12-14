@@ -7,24 +7,24 @@ export default function WhatIsDaw() {
         <Flex
             direction='column'>
 
-            <Flex
-                as="header"
-                paddingY='16'
-                paddingX="24"
-                justifyContent="center"
-                alignItems="center"
-                maxHeight={64}
-                radius='l'
-                background='transparent'
-            >
-                <Text
-                    as="h1"
-                    variant='heading-strong-xl'
-                    align='center'>
-                    What is a DAW?
-                </Text>
-
-            </Flex>
+                    <Flex
+                      as="header"
+                      paddingY='16'
+                      paddingX="16"
+                      justifyContent="center"
+                      alignItems="center"
+                      maxHeight={64}
+                      radius='l'
+                      background='transparent'
+                    >
+                      <Text
+                        as="h1"
+                        variant='heading-strong-xl'
+                        align='center'>
+                        What is a DAW?
+                      </Text>
+            
+                    </Flex>
 
             <Flex
                 borderStyle='solid-1'
@@ -128,25 +128,24 @@ export default function WhatIsDaw() {
                     </Flex>
                 </Grid>
 
-
             </Flex>
 
-            <Flex
-                margin='16'
-                padding='16'
-                justifyContent='right'
-            >
-                <Button
-                    id="next"
-                    href="/background/simple-preview" 
-                    variant="primary">
-                    <Flex alignItems="center">
+                    <Flex
+                      margin='16'
+                      padding='16'
+                      justifyContent='right'
+                    >
+                      <Button
+                        id="next"
+                        href='/learning/simple-preview'
+                        variant="primary">
+                        <Flex alignItems="center">
                         Next: Simple Preview
-                        <Arrow trigger="#next" color='onSolid' />
+                          <Arrow trigger="#next" color='onSolid' />
+                        </Flex>
+                      </Button>
+            
                     </Flex>
-                </Button>
-
-            </Flex>
 
         </Flex>
     );
