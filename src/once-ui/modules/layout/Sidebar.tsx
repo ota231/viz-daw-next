@@ -257,7 +257,7 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href=""
+                            href="/bye"
                             selected={pathname === 'projects'}>
                             <Flex
                                 padding="4" gap="12"
@@ -267,7 +267,7 @@ const Sidebar: React.FC = ({
                                     height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
-                                Sources, Extras
+                                Citations
                             </Flex>
                         </ToggleButton>
                     </Flex>

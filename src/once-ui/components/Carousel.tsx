@@ -55,9 +55,9 @@ const Carousel: React.FC<CarouselProps> = ({
                 setTimeout(() => {
                     setIsTransitioning(true);
                     transitionTimeoutRef.current = undefined;
-                }, 300);
+                }, 150);
                 
-            }, 800);
+            }, 300);
         }
     };
 
