@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Button, Text } from '@/once-ui/components';
-import * as Tone from "tone";
-interface KeyboardProps {
-    activeKeys: string[];
-    onKeyPress: (note: string) => void;
-}
+
 const pianoKeys = [
     { note: 'C4', type: 'white' },
     { note: 'C#4', type: 'black' },
@@ -20,39 +16,24 @@ const pianoKeys = [
     { note: 'B4', type: 'white' },
     { note: 'C5', type: 'white' },
 ];
+
+const isHighlighted = ( buttonIndex: number, note: string): boolean => {
+    const highlightCriteria = [
+        { buttonIndex: 0, note: "C4" },
+        { buttonIndex: 1, note: "E4" },
+        {buttonIndex: 2, note: "G4" },
+        { buttonIndex: 3, note: "C5" },
+    ];
+
+    return highlightCriteria.some(
+        (criteria) =>
+            criteria.buttonIndex === buttonIndex &&
+            criteria.note === note
+    );
+};
+
 const Keyboard: React.FC = () => {
-    const [highlightedKey, setHighlightedKey] = useState<string | null>(null);
-    /*    return (
-           <Flex
-               border="neutral-strong"
-               borderStyle="solid-1"
-               direction="row"
-               padding="8"
-               gap="4"
-           >
-               <Flex justifyContent="left" width={3} alignItems="center">
-                   <Text variant="body-default-m">Key Name</Text>
-               </Flex>
-               {pianoKeys.map((key, index) => (
-                   <Flex key={index} direction="column" alignItems="center">
-                       <Text
-                           style={{
-                               backgroundColor: key.type === "white" ? "#FFF" : "#000",
-                               color: key.type === "white" ? "#000" : "#FFF",
-                               width: "40px",
-                               height: "20px",
-                               margin: "2px",
-                               display: "flex",
-                               justifyContent: "center",
-                               alignItems: "center",
-                           }}
-                       >
-                           {key.note}
-                       </Text>
-                   </Flex>
-               ))}
-           </Flex>
-       ); */
+
     return (
         <Flex
             border="neutral-strong"
@@ -82,14 +63,19 @@ const Keyboard: React.FC = () => {
                     {/* 16 buttons in a row */}
                     <Flex direction="row" gap="4">
                         {Array.from({ length: 4 }).map((_, buttonIndex) => (
+                            console.log(buttonIndex),
+
                             <Button
                                 key={buttonIndex}
                                 onClick={() => { /* handle button click */ }}
                                 style={{
-                                    backgroundColor: "#4E3B31",
+                                    backgroundColor: isHighlighted( buttonIndex, key.note)
+                                        ? "teal"
+                                        : "#4E3B31",
                                     color: "white",
                                     width: "172px",
                                     height: "20px",
+                                    borderRadius: '5px',
                                 }}
                                 size='s'
                             >
