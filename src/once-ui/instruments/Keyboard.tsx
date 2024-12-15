@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Button, Text } from '@/once-ui/components';
 import * as Tone from "tone";
-
-
 interface KeyboardProps {
     activeKeys: string[];
     onKeyPress: (note: string) => void;
 }
-
 const pianoKeys = [
     { note: 'C4', type: 'white' },
     { note: 'C#4', type: 'black' },
@@ -23,10 +20,8 @@ const pianoKeys = [
     { note: 'B4', type: 'white' },
     { note: 'C5', type: 'white' },
 ];
-
 const Keyboard: React.FC = () => {
     const [highlightedKey, setHighlightedKey] = useState<string | null>(null);
-
     /*    return (
            <Flex
                border="neutral-strong"
@@ -84,7 +79,6 @@ const Keyboard: React.FC = () => {
                     >
                         {key.note}
                     </Text>
-
                     {/* 16 buttons in a row */}
                     <Flex direction="row" gap="4">
                         {Array.from({ length: 4 }).map((_, buttonIndex) => (
@@ -96,7 +90,6 @@ const Keyboard: React.FC = () => {
                                     color: "white",
                                     width: "172px",
                                     height: "20px",
-                                    borderRadius: "1px",
                                 }}
                                 size='s'
                             >
@@ -107,8 +100,6 @@ const Keyboard: React.FC = () => {
             ))}
         </Flex>
     );
-
 };
-
 Keyboard.displayName = 'Keyboard';
 export { Keyboard };

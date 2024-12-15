@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as Tone from "tone";
 import { Flex, Button, Icon, Text } from '@/once-ui/components';
+import{Keyboard} from '@/once-ui/instruments/Keyboard';
 
 
 const DrumPattern = () => {
@@ -169,6 +170,10 @@ const DrumPattern = () => {
                     ))}
                 </Flex>
             ))}
+
+            <Flex>
+                <Keyboard />
+            </Flex>
 
             <Flex className="indicator-grid" padding="16" margin="16">
                 <Flex
