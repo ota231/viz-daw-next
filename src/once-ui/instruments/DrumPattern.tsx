@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import * as Tone from "tone";
-import { Flex, Button, Icon } from '@/once-ui/components';
+import { Flex, Button, Icon, Text } from '@/once-ui/components';
 
 
 const DrumPattern = () => {
@@ -27,8 +27,8 @@ const DrumPattern = () => {
                 if (hihatPattern[stepIndex]) hihat.start(time);
                 if (tomsPattern[stepIndex]) toms.start(time);
             },
-            Array.from({ length: 16 }, (_, i) => i), // 16 steps
-            '16n' // Sixteenth notes
+            Array.from({ length: 16 }, (_, i) => i),
+            '16n'
         );
 
         return () => {
@@ -37,7 +37,7 @@ const DrumPattern = () => {
     }, [kickPattern, snarePattern, hihatPattern, tomsPattern]);
 
     const togglePlayback = async () => {
-        await Tone.start(); // Initialize AudioContext
+        await Tone.Transport.start();
 
         if (isPlaying) {
             Tone.Transport.stop();
@@ -61,82 +61,128 @@ const DrumPattern = () => {
     };
 
     return (
-        <Flex direction="column" alignItems="center"
+        <Flex direction="column"
+            alignItems="center"
+            padding='16'
+            margin='32'
             fillWidth>
+
             {/* Kick Pattern */}
-            <h2>Kick</h2>
-            <Flex gap="4px">
-                {kickPattern.map((isActive, index) => (
-                    <Button
-                        key={`kick-${index}`}
-                        onClick={() => toggleStep(index, setKickPattern)}
-                        style={{
-                            backgroundColor: isActive ? '#BF3B30' : '#4E3B31', // Active: red, Inactive: brown
-                            color: 'white',
-                            width: '40px',
-                            height: '40px',
-                        }}
-                    >
-                        {index + 1}
-                    </Button>
-                ))}
+            <Flex
+                direction='row'
+                padding='4'>
+                <Flex
+                    justifyContent='left'
+                    width={3}
+                    alignItems='center'
+                >
+                    <Text
+                        variant='body-default-m'>
+                        Kick</Text>
+                </Flex>
+                <Flex
+                    gap='4'>
+                    {kickPattern.map((isActive, index) => (
+                        <Button
+                            key={`kick-${index}`}
+                            onClick={() => toggleStep(index, setKickPattern)}
+                            style={{
+                                backgroundColor: isActive ? '#BF3B30' : '#4E3B31', // Active: red, Inactive: brown
+                                color: 'white',
+                                width: '40px',
+                                height: '20px',
+                            }}
+                        >
+                        </Button>
+                    ))}
+                </Flex>
             </Flex>
 
             {/* Snare Pattern */}
-            <h2>Snare</h2>
-            <Flex gap="4px">
-                {snarePattern.map((isActive, index) => (
-                    <Button
-                        key={`snare-${index}`}
-                        onClick={() => toggleStep(index, setSnarePattern)}
-                        style={{
-                            backgroundColor: isActive ? '#009B77' : '#4E3B31', // Active: teal, Inactive: brown
-                            color: 'white',
-                            width: '40px',
-                            height: '40px',
-                        }}
-                    >
-                        {index + 1}
-                    </Button>
-                ))}
+            <Flex
+                direction='row'
+                padding='4'>
+                <Flex
+                    justifyContent='left'
+                    width={3}
+                    alignItems='center'>
+                    <Text
+                        variant='body-default-m'>Snare</Text>
+                </Flex>
+                <Flex
+                    gap='4'>
+                    {snarePattern.map((isActive, index) => (
+                        <Button
+                            key={`snare-${index}`}
+                            onClick={() => toggleStep(index, setSnarePattern)}
+                            style={{
+                                backgroundColor: isActive ? '#009B77' : '#4E3B31', // Active: teal, Inactive: brown
+                                color: 'white',
+                                width: '40px',
+                                height: '20px',
+                            }}
+                        >
+                        </Button>
+                    ))}
+                </Flex>
             </Flex>
 
             {/* Hihat Pattern */}
-            <h2>Hihat</h2>
-            <Flex gap="4px">
-                {hihatPattern.map((isActive, index) => (
-                    <Button
-                        key={`hihat-${index}`}
-                        onClick={() => toggleStep(index, setHihatPattern)}
-                        style={{
-                            backgroundColor: isActive ? '#F6A600' : '#4E3B31', // Active: yellow, Inactive: brown
-                            color: 'white',
-                            width: '40px',
-                            height: '40px',
-                        }}
-                    >
-                        {index + 1}
-                    </Button>
-                ))}
+            <Flex
+                direction='row'
+                padding='4'>
+                <Flex
+                    justifyContent='left'
+                    width={3}
+                    alignItems='center'>
+                    <Text
+                        variant='body-default-m'>HiHat</Text>
+                </Flex>
+                <Flex
+                    gap='4'>
+                    {hihatPattern.map((isActive, index) => (
+                        <Button
+                            key={`hihat-${index}`}
+                            onClick={() => toggleStep(index, setHihatPattern)}
+                            style={{
+                                backgroundColor: isActive ? '#F6A600' : '#4E3B31', // Active: yellow, Inactive: brown
+                                color: 'white',
+                                width: '40px',
+                                height: '20px',
+                            }}
+                        >
+                        </Button>
+                    ))}
+                </Flex>
             </Flex>
 
             {/* Toms Pattern */}
-            <h2>Toms</h2>
-            <Flex gap="4px">
-                {tomsPattern.map((isActive, index) => (
-                    <Button
-                        key={`toms-${index}`}
-                        onClick={() => toggleStep(index, setTomsPattern)}
-                        style={{
-                            backgroundColor: isActive ? '#3E5B91' : '#4E3B31', // Active: indigo, Inactive: brown
-                            color: 'white',
-                            width: '40px',
-                            height: '40px',
-                        }}
-                    >
-                        {index + 1}
-                    </Button>
-                ))}
+            <Flex 
+                direction='row'
+                padding='4'>
+                <Flex
+                    justifyContent='left'
+                    width={3}
+                    alignItems='center'>
+                    <Text
+                        variant='body-default-m'>Toms</Text>
+                </Flex>
+                <Flex
+                    gap='4'>
+                    {tomsPattern.map((isActive, index) => (
+                        <Button
+                            key={`toms-${index}`}
+                            onClick={() => toggleStep(index, setTomsPattern)}
+                            style={{
+                                backgroundColor: isActive ? '#3E5B91' : '#4E3B31', // Active: indigo, Inactive: brown
+                                color: 'white',
+                                width: '40px',
+                                height: '20px',
+                            }}
+                        >
+                        </Button>
+                    ))}
+                </Flex>
             </Flex>
             <Flex padding='16'
                 alignItems='center'
@@ -145,6 +191,7 @@ const DrumPattern = () => {
                     onClick={togglePlayback}
                     variant='primary'
                     size='s'
+                    style={{background: '#4E3B31', color: 'white'}}
                 >
                     <Icon name={isPlaying ? 'stop' : 'play'} />
                 </Button>
