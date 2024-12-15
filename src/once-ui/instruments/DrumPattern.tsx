@@ -36,7 +36,6 @@ const DrumPattern = () => {
     const snarePlayer = useRef(new Tone.Player('/sounds/snare.wav').toDestination());
     const hihatPlayer = useRef(new Tone.Player('/sounds/hihat.wav').toDestination());
     const tomsPlayer = useRef(new Tone.Player('/sounds/toms.wav').toDestination());
-
     const totalSteps = 16;
 
     const playStep = (stepIndex: number) => {

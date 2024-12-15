@@ -3,7 +3,6 @@ import { DrumPattern } from '@/once-ui/instruments/DrumPattern';
 
 export default function SimplePreview() {
     return (
-
         <Flex
             direction='column'>
             <Flex
@@ -33,6 +32,11 @@ export default function SimplePreview() {
                     variant='body-default-l'
                     padding='32'>
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    lots of things in DAWs
+                    add fl studio example
+                    limited time and abilitiy can't build an entire one from scratch
+                    but can illustrate simple elements
+                    disclaimer for reloading and such
                 </Text>
             </Flex>
 
@@ -53,7 +57,7 @@ export default function SimplePreview() {
                     href='/learning/additional-features'
                     variant="primary">
                     <Flex alignItems="center">
-                        Next: Let's Make things spicy
+                        Next: Additional Features
                         <Arrow trigger="#next" color='onSolid' />
                     </Flex>
                 </Button>
@@ -63,5 +67,3 @@ export default function SimplePreview() {
         </Flex>
     );
 }
-
-// <p>basic midi keyboard and drum pattern and maybe a track. all on loop</p>
