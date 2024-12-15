@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as Tone from "tone";
 import { Flex, Button, Icon, Text } from '@/once-ui/components';
 
@@ -8,86 +8,104 @@ import { Flex, Button, Icon, Text } from '@/once-ui/components';
 const DrumPattern = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
-    const [kickPattern, setKickPattern] = useState(Array(16).fill(false));
-    const [snarePattern, setSnarePattern] = useState(Array(16).fill(false));
-    const [hihatPattern, setHihatPattern] = useState(Array(16).fill(false));
-    const [tomsPattern, setTomsPattern] = useState(Array(16).fill(false));
-  
+
+    const [kickPattern, setKickPattern] = useState([
+        true, false, false, false, false, true, false, false,
+        true, false, false, false, false, true, false, false,
+    ]);
+
+    const [snarePattern, setSnarePattern] = useState([
+        false, false, true, false, false, false, true, false,
+        false, false, true, false, false, false, true, false,
+    ]);
+
+    const [hihatPattern, setHihatPattern] = useState([
+        false, true, false, true, false, true, false, true,
+        false, true, false, true, false, true, false, true
+
+    ]);
+
+    const [tomsPattern, setTomsPattern] = useState([
+        false, false, false, false, false, false, false, false,
+        true, false, false, false, false, false, false, true,
+    ]);
+
+
     // Persistent Tone.Player instances
     const kickPlayer = useRef(new Tone.Player('/sounds/kick.wav').toDestination());
     const snarePlayer = useRef(new Tone.Player('/sounds/snare.wav').toDestination());
     const hihatPlayer = useRef(new Tone.Player('/sounds/hihat.wav').toDestination());
     const tomsPlayer = useRef(new Tone.Player('/sounds/toms.wav').toDestination());
-  
+
     const totalSteps = 16;
-  
+
     const playStep = (stepIndex: number) => {
-      if (kickPattern[stepIndex]) {
-        kickPlayer.current.stop();
-        kickPlayer.current.start();
-      }
-      if (snarePattern[stepIndex]) {
-        snarePlayer.current.stop();
-        snarePlayer.current.start();
-      }
-      if (hihatPattern[stepIndex]) {
-        hihatPlayer.current.stop();
-        hihatPlayer.current.start();
-      }
-      if (tomsPattern[stepIndex]) {
-        tomsPlayer.current.stop();
-        tomsPlayer.current.start();
-      }
+        if (kickPattern[stepIndex]) {
+            kickPlayer.current.stop();
+            kickPlayer.current.start();
+        }
+        if (snarePattern[stepIndex]) {
+            snarePlayer.current.stop();
+            snarePlayer.current.start();
+        }
+        if (hihatPattern[stepIndex]) {
+            hihatPlayer.current.stop();
+            hihatPlayer.current.start();
+        }
+        if (tomsPattern[stepIndex]) {
+            tomsPlayer.current.stop();
+            tomsPlayer.current.start();
+        }
     };
-  
+
     useEffect(() => {
-      let step = 0;
-  
-      const scheduleStep = (time: number) => {
-        setCurrentStep(step); // Update the UI to show the current step
-        playStep(step); // Play sounds for the current step
-  
-        // Increment step and wrap around
-        step = (step + 1) % totalSteps;
-  
-        // Schedule the next step
-        Tone.Transport.scheduleOnce(scheduleStep, time + Tone.Time('16n').toSeconds());
-      };
-  
-      // Start the scheduling if playing
-      if (isPlaying) {
-        Tone.Transport.scheduleOnce(scheduleStep, Tone.Transport.seconds);
-        Tone.Transport.start();
-      }
-  
-      // Cleanup on stop
-      return () => {
-        Tone.Transport.cancel();
-        Tone.Transport.stop();
-      };
+        // Stop the transport when playback is stopped
+        if (!isPlaying) {
+            Tone.Transport.stop();
+            Tone.Transport.cancel();
+            return;
+        }
+
+        // Schedule the steps to play
+        const scheduleLoop = () => {
+            Tone.Transport.scheduleRepeat((time) => {
+                setCurrentStep((prevStep) => {
+                    const nextStep = (prevStep + 1) % totalSteps;
+                    playStep(nextStep);
+                    return nextStep;
+                });
+            }, '16n'); // Schedule the next step every 16th note
+            Tone.Transport.start();
+        };
+
+        if (isPlaying) {
+            scheduleLoop();
+        }
+
+        return () => {
+            Tone.Transport.stop();
+            Tone.Transport.cancel();
+        };
     }, [isPlaying, kickPattern, snarePattern, hihatPattern, tomsPattern]);
-  
+
     const togglePlayback = async () => {
-      await Tone.start();
-  
-      if (isPlaying) {
-        setIsPlaying(false);
-      } else {
-        setIsPlaying(true);
-      }
+        await Tone.start();
+
+        if (isPlaying) {
+            setIsPlaying(false);
+        } else {
+            setIsPlaying(true);
+        }
     };
-  
-    const toggleStep = (
-      index: number,
-      patternSetter: React.Dispatch<React.SetStateAction<boolean[]>>
-    ) => {
-      patternSetter((prevPattern) => {
-        const newPattern = [...prevPattern];
-        newPattern[index] = !newPattern[index];
-        return newPattern;
-      });
+
+    const toggleStep = (index: number, patternSetter) => {
+        patternSetter((prevPattern) => {
+            const newPattern = [...prevPattern];
+            newPattern[index] = !newPattern[index];
+            return newPattern;
+        });
     };
-  
+
 
     return (
         <Flex
