@@ -30,12 +30,26 @@ const DrumPattern = () => {
         true, false, false, false, false, false, false, true,
     ]);
 
+    const  [pianoPattern, setPianoPattern]  = useState([
+        true, false, false, false, 
+        true, false, false, false,
+        true, false, false, false, 
+        true, false, false, false,
+    ]);
+
+    const pianoNotes = [
+        new Tone.Player('/sounds/piano_C4.mp3').toDestination(),  
+        new Tone.Player('/sounds/piano_E4.mp3').toDestination(),  
+        new Tone.Player('/sounds/piano_G4.mp3').toDestination(),  
+        new Tone.Player('/sounds/piano_C5.mp3').toDestination(),  
+    ];
 
     // Persistent Tone.Player instances
     const kickPlayer = useRef(new Tone.Player('/sounds/kick.wav').toDestination());
     const snarePlayer = useRef(new Tone.Player('/sounds/snare.wav').toDestination());
     const hihatPlayer = useRef(new Tone.Player('/sounds/hihat.wav').toDestination());
     const tomsPlayer = useRef(new Tone.Player('/sounds/toms.wav').toDestination());
+
     const totalSteps = 16;
 
     const playStep = (stepIndex: number) => {
@@ -54,6 +68,12 @@ const DrumPattern = () => {
         if (tomsPattern[stepIndex]) {
             tomsPlayer.current.stop();
             tomsPlayer.current.start();
+        }
+        if (pianoPattern[stepIndex]) {
+            const noteIndex = (stepIndex / 4);  
+            console.log('noteIndex', noteIndex);
+            pianoNotes[noteIndex].stop();  
+            pianoNotes[noteIndex].start(); 
         }
     };
 
@@ -85,7 +105,7 @@ const DrumPattern = () => {
             Tone.Transport.stop();
             Tone.Transport.cancel();
         };
-    }, [isPlaying, kickPattern, snarePattern, hihatPattern, tomsPattern]);
+    }, [isPlaying]);
 
     const togglePlayback = async () => {
         await Tone.start();
@@ -97,7 +117,7 @@ const DrumPattern = () => {
         }
     };
 
-    const toggleStep = (index: number, patternSetter) => {
+    const toggleStep = (index: number, patternSetter:  React.Dispatch<React.SetStateAction<boolean[]>>) => {
         patternSetter((prevPattern) => {
             const newPattern = [...prevPattern];
             newPattern[index] = !newPattern[index];
