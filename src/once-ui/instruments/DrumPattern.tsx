@@ -17,9 +17,9 @@ const DrumPattern = () => {
         hihatPattern, setHihatPattern,
         tomsPattern, setTomsPattern,
         pianoPattern, setPianoPattern,
-    } = useDrumPatterns();  
+    } = useDrumPatterns();
 
-    
+
     const pianoNotes = [
         new Tone.Player('/sounds/piano_C4.mp3').toDestination(),
         new Tone.Player('/sounds/piano_E4.mp3').toDestination(),
@@ -118,6 +118,10 @@ const DrumPattern = () => {
             fillWidth
         >
 
+            <Flex>
+                <Keyboard />
+            </Flex>
+
             {[{ pattern: kickPattern, setter: setKickPattern, label: 'Kick' },
             { pattern: snarePattern, setter: setSnarePattern, label: 'Snare' },
             { pattern: hihatPattern, setter: setHihatPattern, label: 'Hi-Hat' },
@@ -152,10 +156,6 @@ const DrumPattern = () => {
                     ))}
                 </Flex>
             ))}
-
-            <Flex>
-                <Keyboard />
-            </Flex>
 
             <Flex className="indicator-grid" padding="16" margin="16">
                 <Flex

@@ -1,4 +1,5 @@
 import { Flex, Text, SmartLink, Grid, SmartImage, Button, Arrow } from '@/once-ui/components';
+import {AdvancedDrumPattern} from '@/once-ui/instruments/AdvancedDrumPattern';
 
 export default function AddMoreStuff() {
     return (
@@ -40,7 +41,7 @@ export default function AddMoreStuff() {
 
             <Flex
                 fillWidth>
-                BPM
+                <AdvancedDrumPattern />
             </Flex>
 
 
