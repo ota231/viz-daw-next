@@ -3,13 +3,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as Tone from "tone";
 import { Flex, Button, Icon, Text } from '@/once-ui/components';
-import { Keyboard } from '@/once-ui/instruments/Keyboard';
 
 
 const DrumPattern = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
-    const [activeKeys, setActiveKeys] = useState<boolean[]>(new Array(4).fill(false)); // 4 keys (C4, E4, G4, C5)
 
     const [kickPattern, setKickPattern] = useState([
         true, false, false, false, false, true, false, false,
@@ -32,18 +30,18 @@ const DrumPattern = () => {
         true, false, false, false, false, false, false, true,
     ]);
 
-    const [pianoPattern, setPianoPattern] = useState([
+    const  [pianoPattern, setPianoPattern]  = useState([
+        true, false, false, false, 
         true, false, false, false,
-        true, false, false, false,
-        true, false, false, false,
+        true, false, false, false, 
         true, false, false, false,
     ]);
 
     const pianoNotes = [
-        new Tone.Player('/sounds/piano_C4.mp3').toDestination(),
-        new Tone.Player('/sounds/piano_E4.mp3').toDestination(),
-        new Tone.Player('/sounds/piano_G4.mp3').toDestination(),
-        new Tone.Player('/sounds/piano_C5.mp3').toDestination(),
+        new Tone.Player('/sounds/piano_C4.mp3').toDestination(),  
+        new Tone.Player('/sounds/piano_E4.mp3').toDestination(),  
+        new Tone.Player('/sounds/piano_G4.mp3').toDestination(),  
+        new Tone.Player('/sounds/piano_C5.mp3').toDestination(),  
     ];
 
     // Persistent Tone.Player instances
@@ -72,10 +70,10 @@ const DrumPattern = () => {
             tomsPlayer.current.start();
         }
         if (pianoPattern[stepIndex]) {
-            const noteIndex = (stepIndex / 4);
+            const noteIndex = (stepIndex / 4);  
             console.log('noteIndex', noteIndex);
-            pianoNotes[noteIndex].stop();
-            pianoNotes[noteIndex].start();
+            pianoNotes[noteIndex].stop();  
+            pianoNotes[noteIndex].start(); 
         }
     };
 
@@ -119,22 +117,12 @@ const DrumPattern = () => {
         }
     };
 
-    const toggleStep = (index: number, patternSetter: React.Dispatch<React.SetStateAction<boolean[]>>) => {
+    const toggleStep = (index: number, patternSetter:  React.Dispatch<React.SetStateAction<boolean[]>>) => {
         patternSetter((prevPattern) => {
             const newPattern = [...prevPattern];
             newPattern[index] = !newPattern[index];
             return newPattern;
         });
-    };
-
-    const handleKeyPress = (keyIndex: number) => {
-        const newActiveKeys = [...activeKeys];
-        newActiveKeys[keyIndex] = !newActiveKeys[keyIndex];
-        setActiveKeys(newActiveKeys);
-
-        // Play the corresponding piano sound
-        pianoNotes[keyIndex].stop();
-        pianoNotes[keyIndex].start();
     };
 
 
@@ -180,13 +168,7 @@ const DrumPattern = () => {
                         </Flex>
                     ))}
                 </Flex>
-
             ))}
-            <Flex >
-                <Keyboard />
-            </Flex>
-
-
 
             <Flex className="indicator-grid" padding="16" margin="16">
                 <Flex
