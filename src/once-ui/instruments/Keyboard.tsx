@@ -96,6 +96,7 @@ const Keyboard: React.FC = () => {
                                     color: "white",
                                     width: "172px",
                                     height: "20px",
+                                    borderRadius: "1px",
                                 }}
                                 size='s'
                             >

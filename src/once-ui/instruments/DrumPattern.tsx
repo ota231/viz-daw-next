@@ -144,7 +144,8 @@ const DrumPattern = () => {
             alignItems="center"
             padding='16'
             margin='32'
-            fillWidth>
+            fillWidth
+>
 
             {[{ pattern: kickPattern, setter: setKickPattern, label: 'Kick' },
             { pattern: snarePattern, setter: setSnarePattern, label: 'Snare' },
@@ -181,7 +182,7 @@ const DrumPattern = () => {
                 </Flex>
 
             ))}
-            <Flex alignItems='center'>
+            <Flex >
                 <Keyboard />
             </Flex>
 
