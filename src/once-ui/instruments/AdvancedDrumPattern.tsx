@@ -140,6 +140,8 @@ const AdvancedDrumPattern = () => {
         console.log('Pan:', value); // Logs pan value
     };
 
+
+    //Reverb
     const handleReverbWetChange = (value: number) => {
         setReverbWet(value);
         reverb.current.wet.value = value / 100; // 0-1 range for wet
@@ -150,6 +152,7 @@ const AdvancedDrumPattern = () => {
         reverb.current.decay = value; // Set decay time
     };
 
+    //distortion
     const [distortionAmount, setDistortionAmount] = useState(0.5);
 
     const distortion = new Tone.Distortion(distortionAmount).toDestination();
@@ -158,7 +161,6 @@ const AdvancedDrumPattern = () => {
         setDistortionAmount(value);
         distortion.distortion = value;
     };
-
 
     return (
         <Flex direction='row'
