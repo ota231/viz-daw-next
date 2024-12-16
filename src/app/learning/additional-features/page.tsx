@@ -37,6 +37,7 @@ export default function AddMoreStuff() {
                     disclaimer for reloading and such
                     for simplicity knobs, sliders done for entire sequence rather than per instrument
                     notice how things can become really complex really fast !
+                    omitted tracks, here instruments are kind of like tracks.
                 </Text>
             </Flex>
 
@@ -67,6 +68,3 @@ export default function AddMoreStuff() {
         </Flex>
     );
 }
-
-
-// <p>buttons, sliders, graphs. volume, panning, automation, MIDI controls, EQ, compressor, delay, track clipping</p>

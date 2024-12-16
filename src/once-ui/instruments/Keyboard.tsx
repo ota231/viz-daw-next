@@ -17,11 +17,11 @@ const pianoKeys = [
     { note: 'C5', type: 'white' },
 ];
 
-const isHighlighted = ( buttonIndex: number, note: string): boolean => {
+const isHighlighted = (buttonIndex: number, note: string): boolean => {
     const highlightCriteria = [
         { buttonIndex: 0, note: "C4" },
         { buttonIndex: 1, note: "E4" },
-        {buttonIndex: 2, note: "G4" },
+        { buttonIndex: 2, note: "G4" },
         { buttonIndex: 3, note: "C5" },
     ];
 
@@ -41,11 +41,16 @@ const Keyboard: React.FC = () => {
             direction="column"
             padding="8"
             gap="4"
+            role="group"
+            aria-label="Piano Keyboard"
         >
             {/* Rows for each key */}
             {pianoKeys.map((key, keyIndex) => (
-                <Flex key={keyIndex} direction="row" alignItems="center" gap="4"
-                    role='keyboard'>
+                <Flex key={keyIndex} direction="row"
+                    alignItems="center"
+                    gap="4"
+                    role="group"
+                    aria-label="Piano Keyboard">
                     {/* Key name on the left */}
                     <Text
                         style={{
@@ -58,7 +63,6 @@ const Keyboard: React.FC = () => {
                             alignItems: "center",
                             marginRight: "8px",
                         }}
-                        aria-labelledby='keyboard keys'
                     >
                         {key.note}
                     </Text>
@@ -71,7 +75,7 @@ const Keyboard: React.FC = () => {
                                 key={buttonIndex}
                                 onClick={() => { /* handle button click */ }}
                                 style={{
-                                    backgroundColor: isHighlighted( buttonIndex, key.note)
+                                    backgroundColor: isHighlighted(buttonIndex, key.note)
                                         ? "teal"
                                         : "#4E3B31",
                                     color: "white",
@@ -79,8 +83,9 @@ const Keyboard: React.FC = () => {
                                     height: "20px",
                                     borderRadius: '5px',
                                 }}
-                                aria-pressed={isHighlighted( buttonIndex, key.note)}
                                 size='s'
+                                role="group"
+                                aria-label="Piano Keyboard"
                             >
                             </Button>
                         ))}

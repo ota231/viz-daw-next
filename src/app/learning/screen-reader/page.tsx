@@ -39,8 +39,7 @@ export default function ScreenReader() {
                     <SmartLink
                         href="/learning/citation#2"
                     >[2]</SmartLink> <br /> <br />
-                    As you can probably already tell, DAWs can become very complicated very fast; even with a simplified version can start to feel
-                    overwhelming due to the sheer number of tools and options. For users with visual impairments, the most widespread workaround
+                    For users with visual impairments, the most widespread workaround
                     is almost always a screen reader. For my simulation, I use NVDA <SmartLink
                         href="/learning/citation#3"
                     >[3]</SmartLink>  which folks in <SmartLink
@@ -53,7 +52,11 @@ export default function ScreenReader() {
                     
                     On the development side, adding a screen reader to my own project revealed that I did not know as much about web development as I thought. For features like buttons, knobs and slids (all of which are basically what make up DAWS)
                     additional attributes need to be specified in the code to tell the screen reader to update the user when different changes are made. Additionally, you can imagine how long it may take for the reader to 
-                    describe the entire screen, significantly slowing down the user's efficiency. 
+                    describe the entire screen, significantly slowing down the user's efficiency. <br /> <br />
+
+                    Inefficiency: As you can probably already tell, DAWs can become very complicated very fast; even with a simplified version can start to feel
+                    overwhelming due to the sheer number of tools and options. becomes harder to track things with a screen reader...
+                    make sure to talk about how even tho my implementation is not perfect, it highlights how a user would have to manually navigate through the UI (often done using the arrow keys ore mouse) to retreive relevant information on the state of instruments and tracks.
                 </Text>
             </Flex>
 

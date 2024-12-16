@@ -21,9 +21,9 @@ const AdvancedDrumPattern = () => {
         pianoPattern, setPianoPattern,
     } = useDrumPatterns();
 
-    const reverb = useRef(new Tone.Reverb(3).toDestination()); // Initial reverb decay time
-    const [reverbWet, setReverbWet] = useState(50); // Wet/dry mix (0-100)
-    const [reverbDecay, setReverbDecay] = useState(3); // Decay time (1-10)
+    const reverb = useRef(new Tone.Reverb(1).toDestination()); // Initial reverb decay time
+    const [reverbWet, setReverbWet] = useState(0); // Wet/dry mix (0-100)
+    const [reverbDecay, setReverbDecay] = useState(0); // Decay time (1-10)
 
 
     const pianoNotes = [
