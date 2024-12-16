@@ -54,12 +54,6 @@ export default function ScreenReader() {
                     On the development side, adding a screen reader to my own project revealed that I did not know as much about web development as I thought. For features like buttons, knobs and slids (all of which are basically what make up DAWS)
                     additional attributes need to be specified in the code to tell the screen reader to update the user when different changes are made. Additionally, you can imagine how long it may take for the reader to 
                     describe the entire screen, significantly slowing down the user's efficiency. 
-
-
-
-
-
-
                 </Text>
             </Flex>
 

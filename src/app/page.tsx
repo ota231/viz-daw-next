@@ -72,7 +72,7 @@ export default function Home() {
 				<Flex
 					gap="12">
 					<Button
-						href="https://github.com/once-ui-system/nextjs-starter"
+						href="https://github.com/ota231/viz-daw-next"
 						prefixIcon="github" size="s" variant="tertiary">
 						GitHub
 					</Button>

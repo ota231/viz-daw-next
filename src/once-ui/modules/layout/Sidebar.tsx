@@ -26,7 +26,7 @@ const Sidebar: React.FC = ({
                 className={isOpen ? 'translate-x-0' : '-translate-x-full'}>
                 <NavIcon onClick={toggleSidebar}/>
                 <Flex
-                    fillHeight fillWidth paddingX="xs" gap="m"
+                     fillWidth paddingX="xs" gap="m"
                     direction="column">
                     <Flex
                         fillWidth
@@ -268,6 +268,22 @@ const Sidebar: React.FC = ({
                                     alpha="neutral-strong">
                                 </Flex>
                                 Bibliography
+                            </Flex>
+                        </ToggleButton>
+                        <ToggleButton
+                            width="fill"
+                            align="start"
+                            href="/learning/reflection"
+                            selected={pathname === 'projects'}>
+                            <Flex
+                                padding="4" gap="12"
+                                alignItems="center"
+                                textVariant="label-default-s">
+                                <Flex
+                                    height="1" width="16"
+                                    alpha="neutral-strong">
+                                </Flex>
+                                Reflection
                             </Flex>
                         </ToggleButton>
                     </Flex>
