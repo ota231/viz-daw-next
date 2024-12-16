@@ -1,35 +1,36 @@
 import { useState } from 'react';
+import * as Tone from "tone";
 
 export const useDrumPatterns = () => {
 
     const [kickPattern, setKickPattern] = useState([
-            true, false, false, false, false, true, false, false,
-            true, false, false, false, false, true, false, false,
-        ]);
-    
-        const [snarePattern, setSnarePattern] = useState([
-            false, false, true, false, false, false, true, false,
-            false, false, true, false, false, false, true, false,
-        ]);
-    
-        const [hihatPattern, setHihatPattern] = useState([
-            false, true, false, true, false, true, false, true,
-            false, true, false, true, false, true, false, true
-    
-        ]);
-    
-        const [tomsPattern, setTomsPattern] = useState([
-            false, false, false, false, false, false, false, false,
-            true, false, false, false, false, false, false, true,
-        ]);
-    
-        const [pianoPattern, setPianoPattern] = useState([
-            true, false, false, false,
-            true, false, false, false,
-            true, false, false, false,
-            true, false, false, false,
-        ]);
-    
+        true, false, false, false, false, true, false, false,
+        true, false, false, false, false, true, false, false,
+    ]);
+
+    const [snarePattern, setSnarePattern] = useState([
+        false, false, true, false, false, false, true, false,
+        false, false, true, false, false, false, true, false,
+    ]);
+
+    const [hihatPattern, setHihatPattern] = useState([
+        false, true, false, true, false, true, false, true,
+        false, true, false, true, false, true, false, true
+
+    ]);
+
+    const [tomsPattern, setTomsPattern] = useState([
+        false, false, false, false, false, false, false, false,
+        true, false, false, false, false, false, false, true,
+    ]);
+
+    const [pianoPattern, setPianoPattern] = useState([
+        true, false, false, false,
+        true, false, false, false,
+        true, false, false, false,
+        true, false, false, false,
+    ]);
+
 
 
     return {
@@ -38,5 +39,5 @@ export const useDrumPatterns = () => {
         hihatPattern, setHihatPattern,
         tomsPattern, setTomsPattern,
         pianoPattern, setPianoPattern
-      };
+    };
 }
