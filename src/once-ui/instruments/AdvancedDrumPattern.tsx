@@ -110,6 +110,15 @@ const AdvancedDrumPattern = () => {
         });
     };
 
+    //bpm stuff
+    const [bpm, setBpm] = useState(Tone.Transport.bpm.value);
+
+    const handleBpmChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newBpm = parseInt(event.target.value, 10);
+        setBpm(newBpm);
+        Tone.Transport.bpm.value = newBpm;
+    };
+
     return (
         <Flex
             direction="column"
@@ -152,7 +161,7 @@ const AdvancedDrumPattern = () => {
                                     height: '40px',
                                 }}
                             />
-                        </Flex>
+                        </Flex>                        
                     ))}
                 </Flex>
             ))}
@@ -190,6 +199,23 @@ const AdvancedDrumPattern = () => {
                 >
                     <Icon name={isPlaying ? 'stop' : 'play'} />
                 </Button>
+
+                <Flex direction="column" marginLeft="16"
+                    alignItems='center'>
+                    <Text variant="body-default-l">BPM: {bpm}</Text>
+                    <input
+                        type="range"
+                        value={bpm}
+                        min="60"
+                        max="200"
+                        onChange={handleBpmChange}
+                        style={{
+                            width: '80px',
+                            marginTop: '8px',
+                            textAlign: 'center',
+                        }}
+                    />
+                </Flex>
 
             </Flex>
         </Flex>
