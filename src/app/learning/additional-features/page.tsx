@@ -53,7 +53,7 @@ export default function AddMoreStuff() {
             >
                 <Button
                     id="next"
-                    href='/learning/additional-features'
+                    href='/learning/screen-reader'
                     variant="primary">
                     <Flex alignItems="center">
                         Next: Screen Reader

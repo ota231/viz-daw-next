@@ -38,7 +38,8 @@ export default function SimplePreview() {
             </Flex>
 
             <Flex
-                fillWidth>
+                fillWidth
+                alignItems='center'>
                 <DrumPattern />
             </Flex>
 
