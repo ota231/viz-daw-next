@@ -53,9 +53,15 @@ export default function Home() {
 							</Button>
 						</Flex>
 					</Flex>
-					<Flex position="relative">
-						<Text >
+					<Flex position="relative"
+						direction='column'>
+						<Text 
+						variant="body-default-m">
 							Final Project for Musical Abilities & Disabilities by: Tomisin Adeyemi
+						</Text>
+						<Text
+							variant="body-default-m">
+							 ⚠️ Please wear headphones for the full experience. ⚠️ 
 						</Text>
 					</Flex>
 				</Flex>

@@ -70,10 +70,10 @@ export default function ScreenReader() {
             >
                 <Button
                     id="next"
-                    href='/learning/additional-features'
+                    href='/learning/screen-reader-improved'
                     variant="primary">
                     <Flex alignItems="center">
-                        Next: Screen Reader
+                        Next: Screen Reader 2.0
                         <Arrow trigger="#next" color='onSolid' />
                     </Flex>
                 </Button>

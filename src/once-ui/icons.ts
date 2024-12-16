@@ -59,4 +59,5 @@ export const iconLibrary: Record<string, IconType> = {
 	bye: HiHandRaised,
 	play: HiMiniPlay ,
 	stop: HiMiniStop,
+	warning: HiExclamationTriangle,
 };
