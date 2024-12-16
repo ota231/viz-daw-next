@@ -21,21 +21,23 @@ const AdvancedDrumPattern = () => {
         pianoPattern, setPianoPattern,
     } = useDrumPatterns();
 
+    const reverb = useRef(new Tone.Reverb(3).toDestination()); // Initial reverb decay time
+    const [reverbWet, setReverbWet] = useState(50); // Wet/dry mix (0-100)
+    const [reverbDecay, setReverbDecay] = useState(3); // Decay time (1-10)
+
 
     const pianoNotes = [
-        new Tone.Player('/sounds/piano_C4.mp3').toDestination(),
-        new Tone.Player('/sounds/piano_E4.mp3').toDestination(),
-        new Tone.Player('/sounds/piano_G4.mp3').toDestination(),
-        new Tone.Player('/sounds/piano_C5.mp3').toDestination(),
+        new Tone.Player('/sounds/piano_C4.mp3').connect(reverb.current),
+        new Tone.Player('/sounds/piano_E4.mp3').connect(reverb.current),
+        new Tone.Player('/sounds/piano_G4.mp3').connect(reverb.current),
+        new Tone.Player('/sounds/piano_C5.mp3').connect(reverb.current),
     ];
 
     // Persistent Tone.Player instances
-    const kickPlayer = useRef(new Tone.Player('/sounds/kick.wav').toDestination());
-    const snarePlayer = useRef(new Tone.Player('/sounds/snare.wav').toDestination());
-    const hihatPlayer = useRef(new Tone.Player('/sounds/hihat.wav').toDestination());
-    const tomsPlayer = useRef(new Tone.Player('/sounds/toms.wav').toDestination());
-
-
+    const kickPlayer = useRef(new Tone.Player('/sounds/kick.wav').connect(reverb.current));
+    const snarePlayer = useRef(new Tone.Player('/sounds/snare.wav').connect(reverb.current));
+    const hihatPlayer = useRef(new Tone.Player('/sounds/hihat.wav').connect(reverb.current));
+    const tomsPlayer = useRef(new Tone.Player('/sounds/toms.wav').connect(reverb.current));
 
     const totalSteps = 16;
 
@@ -138,41 +140,88 @@ const AdvancedDrumPattern = () => {
         console.log('Pan:', value); // Logs pan value
     };
 
+    const handleReverbWetChange = (value: number) => {
+        setReverbWet(value);
+        reverb.current.wet.value = value / 100; // 0-1 range for wet
+    };
+
+    const handleReverbDecayChange = (value: number) => {
+        setReverbDecay(value);
+        reverb.current.decay = value; // Set decay time
+    };
+
 
     return (
         <Flex direction='row'
             padding='16'
             margin='32'>
 
-            <Flex id='knobs'
-                maxWidth={200}>
+            <Flex
+                maxWidth={200}
+                direction='column'>
 
-                <Flex direction='column'
-                    alignItems='center'>
-                <Knob 
-                    value={volume} 
-                    min={0} 
-                    max={100} 
-                    onChange={(e) => handleVolumeChange(e.value)} 
-                    showValue={true} 
-                    valueColor="#708090" rangeColor="#48d1cc"
-                    textColor='white'
-                />
-                <Text>Volume</Text>
+                <Flex id='vols'
+                    border='neutral-strong'
+                    borderStyle='solid-1'
+                    padding='8'
+                    margin='8'>
+                    <Flex direction='column'
+                        alignItems='center'
+                    >
+                        <Knob
+                            value={volume}
+                            min={0}
+                            max={100}
+                            onChange={(e) => handleVolumeChange(e.value)}
+                            showValue={true}
+                            valueColor="#48d1cc" rangeColor="#708090"
+                            textColor='white'
+                        />
+                        <Text>Volume</Text>
+                    </Flex>
+
+                    <Flex direction='column'
+                        alignItems='center'>
+                        <Knob
+                            value={pan}
+                            min={-1}
+                            max={1}
+                            onChange={(e) => handlePanChange(e.value)}
+                            showValue={true}
+                            valueColor="#48d1cc" rangeColor="#708090"
+                            textColor='white'
+                        />
+                        <Text>Pan</Text>
+                    </Flex>
                 </Flex>
 
-                <Flex direction='column'
-                    alignItems='center'>
-                    <Knob 
-                    value={pan} 
-                    min={-1} 
-                    max={1} 
-                    onChange={(e) => handleVolumeChange(e.value)} 
-                    showValue={true} 
-                    valueColor="#708090" rangeColor="#48d1cc"
-                    textColor='white'
-                />
-                <Text>Pan</Text>
+                <Flex
+                    id='reverb'
+                    direction="column" alignItems="center"
+                    border='neutral-strong'
+                    borderStyle='solid-1'
+                    padding='8'
+                    margin='8'>
+                    <Text variant="body-default-l">Reverb</Text>
+                    <input
+                        type="range"
+                        value={reverbWet}
+                        onChange={(e) => handleReverbWetChange(Number(e.target.value))}
+                        min={0}
+                        max={100}
+                        style={{ width: '150px', marginTop: '8px' }}
+                    />
+                    <Text variant="body-default-s">Wet: {reverbWet}%</Text>
+
+                    <input
+                        type="range"
+                        value={reverbDecay}
+                        onChange={(e) => handleReverbDecayChange(Number(e.target.value))}
+                        min={1}
+                        max={10}
+                        style={{ width: '150px', marginTop: '8px' }}
+                    />
+                    <Text variant="body-default-s">Decay: {reverbDecay}s</Text>
                 </Flex>
 
             </Flex>
