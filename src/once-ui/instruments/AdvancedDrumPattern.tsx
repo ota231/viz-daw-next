@@ -150,6 +150,15 @@ const AdvancedDrumPattern = () => {
         reverb.current.decay = value; // Set decay time
     };
 
+    const [distortionAmount, setDistortionAmount] = useState(0.5);
+
+    const distortion = new Tone.Distortion(distortionAmount).toDestination();
+
+    const handleDistortionChange = (value: number) => {
+        setDistortionAmount(value);
+        distortion.distortion = value;
+    };
+
 
     return (
         <Flex direction='row'
@@ -202,7 +211,7 @@ const AdvancedDrumPattern = () => {
                     borderStyle='solid-1'
                     padding='8'
                     margin='8'>
-                    <Text variant="body-default-l">Reverb</Text>
+                    <Text variant="body-strong-l">Reverb</Text>
                     <input
                         type="range"
                         value={reverbWet}
@@ -222,6 +231,25 @@ const AdvancedDrumPattern = () => {
                         style={{ width: '150px', marginTop: '8px' }}
                     />
                     <Text variant="body-default-s">Decay: {reverbDecay}s</Text>
+                </Flex>
+
+                <Flex
+                    alignItems='center'
+                    direction='column'
+                    border='neutral-strong'
+                    borderStyle='solid-1'
+                    padding='8'
+                    margin='8'>
+                    <Text variant="body-strong-l">Distortion</Text>
+                    <input
+                        type="range"
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        value={distortionAmount}
+                        onChange={(e) => handleDistortionChange(parseFloat(e.target.value))}
+                    />
+                    <p>{`Amount: ${distortionAmount}`}</p>
                 </Flex>
 
             </Flex>
