@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import * as Tone from "tone";
-import { Flex, Button, Icon, Text } from '@/once-ui/components';
+import { Flex, Button, Icon, Text, Grid, RadioButton } from '@/once-ui/components';
 import { Keyboard } from '@/once-ui/instruments/Keyboard';
 import { useDrumPatterns } from '@/once-ui/instruments/InstrumentHooks';
 import { Knob } from 'primereact/knob';
@@ -122,40 +122,22 @@ const AdvancedDrumPattern = () => {
         Tone.Transport.bpm.value = newBpm;
     };
 
-    const [kickVolume, setKickVolume] = useState(50);
-    const [snareVolume, setSnareVolume] = useState(50);
-    const [hihatVolume, setHihatVolume] = useState(50);
-    const [tomsVolume, setTomsVolume] = useState(50);
+    // volume + pan
+    const [volume, setVolume] = useState(50); // 0-100 range for simplicity
+    const [pan, setPan] = useState(0); // -1 to 1 for pan range
 
-    const handleVolumeChange = (instrument: string, value: number) => {
-        switch (instrument) {
-            case 'Kick':
-                setKickVolume(value);
-                kickPlayer.current.volume.value = value * 100; // Tone.js volume is in decibels
-                break;
-            case 'Snare':
-                setSnareVolume(value);
-                snarePlayer.current.volume.value = value * 100;
-                break;
-            case 'Hi-hat':
-                setHihatVolume(value);
-                hihatPlayer.current.volume.value = value * 100;
-                break;
-            case 'Toms':
-                setTomsVolume(value);
-                tomsPlayer.current.volume.value = value * 100;
-                break;
-            default:
-                break;
-        }
+    // Handle Volume Knob Change
+    const handleVolumeChange = (value: number) => {
+        setVolume(value);
+        console.log('Volume:', value); // Logs volume value
     };
 
-    const instrumentVolProperties = [
-        { name: 'Kick', volume: kickVolume, setter: setKickVolume },
-        { name: 'Snare', volume: snareVolume, setter: setSnareVolume },
-        { name: 'Hi-Hat', volume: hihatVolume, setter: setHihatVolume },
-        { name: 'Toms', volume: tomsVolume, setter: setTomsVolume },
-    ];
+    // Handle Pan Knob Change
+    const handlePanChange = (value: number) => {
+        setPan(value);
+        console.log('Pan:', value); // Logs pan value
+    };
+
 
     return (
         <Flex direction='row'
@@ -164,29 +146,35 @@ const AdvancedDrumPattern = () => {
 
             <Flex id='knobs'
                 maxWidth={200}>
-                <Flex
-                    direction='column'>
-                        
-                    {instrumentVolProperties.map(({ name, volume, setter }) => (
-                        <Flex className="instrument-control" key={name}>
-                            <Flex
-                                width={3}>
-                                <Text
-                                    variant='body-strong-m'>{name}</Text>
-                            </Flex>
-                            <Knob
-                                min={0}
-                                max={100}
-                                value={volume}
-                                onChange={(e) => handleVolumeChange(name, e.value)}
-                                step={10}
-                                size={50}
-                                valueColor="#708090" rangeColor="#48d1cc"
-                                textColor='white'
-                            />
-                        </Flex>
-                    ))}
+
+                <Flex direction='column'
+                    alignItems='center'>
+                <Knob 
+                    value={volume} 
+                    min={0} 
+                    max={100} 
+                    onChange={(e) => handleVolumeChange(e.value)} 
+                    showValue={true} 
+                    valueColor="#708090" rangeColor="#48d1cc"
+                    textColor='white'
+                />
+                <Text>Volume</Text>
                 </Flex>
+
+                <Flex direction='column'
+                    alignItems='center'>
+                    <Knob 
+                    value={pan} 
+                    min={-1} 
+                    max={1} 
+                    onChange={(e) => handleVolumeChange(e.value)} 
+                    showValue={true} 
+                    valueColor="#708090" rangeColor="#48d1cc"
+                    textColor='white'
+                />
+                <Text>Pan</Text>
+                </Flex>
+
             </Flex>
 
             <Flex
