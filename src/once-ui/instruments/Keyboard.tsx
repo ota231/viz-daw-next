@@ -44,7 +44,8 @@ const Keyboard: React.FC = () => {
         >
             {/* Rows for each key */}
             {pianoKeys.map((key, keyIndex) => (
-                <Flex key={keyIndex} direction="row" alignItems="center" gap="4">
+                <Flex key={keyIndex} direction="row" alignItems="center" gap="4"
+                    role='keyboard'>
                     {/* Key name on the left */}
                     <Text
                         style={{
@@ -57,6 +58,7 @@ const Keyboard: React.FC = () => {
                             alignItems: "center",
                             marginRight: "8px",
                         }}
+                        aria-labelledby='keyboard keys'
                     >
                         {key.note}
                     </Text>
@@ -77,6 +79,7 @@ const Keyboard: React.FC = () => {
                                     height: "20px",
                                     borderRadius: '5px',
                                 }}
+                                aria-pressed={isHighlighted( buttonIndex, key.note)}
                                 size='s'
                             >
                             </Button>

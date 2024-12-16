@@ -175,7 +175,9 @@ const AdvancedDrumPattern = () => {
                     border='neutral-strong'
                     borderStyle='solid-1'
                     padding='8'
-                    margin='8'>
+                    margin='8'
+                    role="group"
+                    aria-labelledby="vols-label">
                     <Flex direction='column'
                         alignItems='center'
                     >
@@ -187,6 +189,8 @@ const AdvancedDrumPattern = () => {
                             showValue={true}
                             valueColor="#48d1cc" rangeColor="#708090"
                             textColor='white'
+                            aria-label="Volume Control"
+                            aria-live='assertive'
                         />
                         <Text>Volume</Text>
                     </Flex>
@@ -201,6 +205,8 @@ const AdvancedDrumPattern = () => {
                             showValue={true}
                             valueColor="#48d1cc" rangeColor="#708090"
                             textColor='white'
+                            aria-label="Pan Control"
+                            aria-live='assertive'
                         />
                         <Text>Pan</Text>
                     </Flex>
@@ -212,7 +218,9 @@ const AdvancedDrumPattern = () => {
                     border='neutral-strong'
                     borderStyle='solid-1'
                     padding='8'
-                    margin='8'>
+                    margin='8'
+                    role="group"
+                    aria-labelledby="reverb-label">
                     <Text variant="body-strong-l">Reverb</Text>
                     <input
                         type="range"
@@ -221,6 +229,8 @@ const AdvancedDrumPattern = () => {
                         min={0}
                         max={100}
                         style={{ width: '150px', marginTop: '8px' }}
+                        aria-label="Reverb Wet"
+                        aria-live='assertive'
                     />
                     <Text variant="body-default-s">Wet: {reverbWet}%</Text>
 
@@ -231,6 +241,8 @@ const AdvancedDrumPattern = () => {
                         min={1}
                         max={10}
                         style={{ width: '150px', marginTop: '8px' }}
+                        aria-label="Reverb Decay"
+                        aria-live='assertive'
                     />
                     <Text variant="body-default-s">Decay: {reverbDecay}s</Text>
                 </Flex>
@@ -241,7 +253,9 @@ const AdvancedDrumPattern = () => {
                     border='neutral-strong'
                     borderStyle='solid-1'
                     padding='8'
-                    margin='8'>
+                    margin='8'
+                    role="group"
+                    aria-labelledby="reverb-label">
                     <Text variant="body-strong-l">Distortion</Text>
                     <input
                         type="range"
@@ -250,6 +264,8 @@ const AdvancedDrumPattern = () => {
                         step={0.01}
                         value={distortionAmount}
                         onChange={(e) => handleDistortionChange(parseFloat(e.target.value))}
+                        aria-label="Distortion Amount"
+                        aria-live='assertive'
                     />
                     <p>{`Amount: ${distortionAmount}`}</p>
                 </Flex>
@@ -275,7 +291,8 @@ const AdvancedDrumPattern = () => {
                         borderStyle='solid-1'
                         direction='row'
                         padding='8'
-                        gap='4'>
+                        gap='4'
+                        aria-labelledby={`pattern-label-${rowIndex}`}>
                         <Flex
                             justifyContent='left'
                             width={3}
@@ -289,6 +306,10 @@ const AdvancedDrumPattern = () => {
                                 <Button
                                     key={stepIndex}
                                     onClick={() => toggleStep(stepIndex, instrument.setter)}
+                                    aria-labelledby={`pattern-label-${rowIndex}`}
+                                    aria-pressed={isActive}
+                                    aria-label={`${instrument.label} Step ${stepIndex + 1} ${isActive ? "Active" : "Inactive"
+                                        }`}
                                     style={{
                                         backgroundColor: isActive ? '#BF3B30' : '#4E3B31',
                                         color: 'white',
@@ -307,7 +328,8 @@ const AdvancedDrumPattern = () => {
                     <Flex
                         justifyContent='left'
                         width={3}
-                        alignItems='center'>
+                        alignItems='center'
+                        >
 
                     </Flex>
                     {Array.from({ length: 16 }).map((_, index) => (
@@ -320,6 +342,7 @@ const AdvancedDrumPattern = () => {
                                 margin: '2px',
                                 borderRadius: '5px',
                             }}
+                            aria-hidden="true"
                         />
                     ))}
                 </Flex>
@@ -330,6 +353,7 @@ const AdvancedDrumPattern = () => {
                         onClick={togglePlayback}
                         variant='primary'
                         size='s'
+                        aria-label={isPlaying ? "Stop Playback" : "Start Playback"}
                         style={{ background: '#4E3B31', color: 'white' }}
                     >
                         <Icon name={isPlaying ? 'stop' : 'play'} />
@@ -349,6 +373,8 @@ const AdvancedDrumPattern = () => {
                                 marginTop: '8px',
                                 textAlign: 'center',
                             }}
+                            aria-label="Beats Per Minute (BPM)"
+                            aria-live='assertive'
                         />
                     </Flex>
 

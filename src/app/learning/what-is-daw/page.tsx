@@ -36,7 +36,7 @@ export default function WhatIsDaw() {
                     DAWs come in a wide variety of configurations from a single software program on a laptop, to an integrated stand-alone unit, all the way to a highly
                     complex configuration of numerous components controlled by a central computer. Regardless of configuration, modern DAWs have a central interface that
                     allows the user to alter and mix multiple recordings and tracks into a final produced piece<SmartLink
-                        href="/bye#1"
+                        href="/learning/citation#1"
                     >[1]</SmartLink>. There applications include music, speech, radio, television
                     and film, soundtracks, podcasts, and basically any field that has audio involved. For the purposes of this project, we will be referring
                     to DAWs as the software applications that are used to create and edit music.
