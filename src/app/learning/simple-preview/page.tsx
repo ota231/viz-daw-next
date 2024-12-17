@@ -1,5 +1,7 @@
-import { Flex, Text, SmartLink, Grid, SmartImage, Button, Arrow } from '@/once-ui/components';
+import { Flex, Text, SmartLink, Button, Arrow } from '@/once-ui/components';
 import { DrumPattern } from '@/once-ui/instruments/DrumPattern';
+
+import Image from 'next/image';
 
 export default function SimplePreview() {
     return (
@@ -26,18 +28,33 @@ export default function SimplePreview() {
 
             <Flex
                 borderStyle='solid-1'
-                radius='s'>
-                <Text
-                    as='p'
-                    variant='body-default-l'
-                    padding='32'>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    lots of things in DAWs
-                    add fl studio example
-                    limited time and abilitiy can't build an entire one from scratch
-                    but can illustrate simple elements
-                    disclaimer for reloading and such
-                </Text>
+                radius='s'
+                direction='row'>
+                <Flex>
+                    <Text
+                        as='p'
+                        variant='body-default-l'
+                        padding='32'>
+                        For this project, I aimed to explore the accessibility of DAWs by immersing myself in the software development process and pushing the boundaries of how inclusive
+                        my software development skills are. DAWs are pretty complex with tons of features, but given my limited time and resources, I focused on creating a pretty simplified snippet of a DAW.
+                        The preview below is centered around instruments, inspired by the beginner FL Studio channel rack, shown below. More complex components like tracks/mixers are omitted from this rendering. You can also imagine that the instruments are tracks.
+                        I use Tone.js <SmartLink href="/learning/citation#6">[6]</SmartLink>to generate the sounds and effects, so my implementation is also limited to the resources available in Tone.js.
+                    </Text>
+                </Flex>
+
+            </Flex>
+
+            <Flex
+                direction='column'
+                alignItems='center'
+                padding='32'>
+                <Image
+                    src="/images/channelrack_main.png"
+                    alt="FL Studio Channel Rack"
+                    style={{ borderRadius: '4px' }}
+                    width={650}
+                    height={250}
+                />
             </Flex>
 
             <Flex

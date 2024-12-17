@@ -42,8 +42,14 @@ export default function Bye() {
                 <Text id='5'
                     as='li'
                     variant='body-default-l'>
-                Metatla, Oussama, et al. “Audio-haptic interfaces for digital audio workstations.” Journal on Multimodal User Interfaces, vol. 10, no. 3, 2 May 2016, pp. 247–258, https://doi.org/10.1007/s12193-016-0217-8. 
+                    Metatla, Oussama, et al. “Audio-haptic interfaces for digital audio workstations.” Journal on Multimodal User Interfaces, vol. 10, no. 3, 2 May 2016, pp. 247–258, https://doi.org/10.1007/s12193-016-0217-8.
                 </Text>
+                <Text id='6'
+                    as='li'
+                    variant='body-default-l'>
+                    Tone.Js, tonejs.github.io/. Accessed Dec. 2024.
+                </Text>
+
             </Flex>
         </Flex>
     );

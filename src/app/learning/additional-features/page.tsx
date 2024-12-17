@@ -31,14 +31,10 @@ export default function AddMoreStuff() {
                     as='p'
                     variant='body-default-l'
                     padding='32'>
-                    lots of things in DAWs
-                    limited time and abilitiy can't build an entire one from scratch
-                    but can illustrate simple elements
-                    disclaimer for reloading and such
+                    now some more elements that are used to mix/develop the sound
                     for simplicity knobs, sliders done for entire sequence rather than per instrument
                     notice how things can become really complex really fast !
                     omitted tracks, here instruments are kind of like tracks.
-
                     more 'graphical' stuff not included because of limitations of tone.js: EQ, compression
                 </Text>
             </Flex>

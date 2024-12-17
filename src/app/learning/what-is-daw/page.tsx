@@ -33,13 +33,12 @@ export default function WhatIsDaw() {
                     variant='body-default-l'
                     padding='32'>
                     Digital Audio Workstations, commonly referred to as DAWs, are electronic devices or application software used for recording, editing and producing audio files.
-                    DAWs come in a wide variety of configurations from a single software program on a laptop, to an integrated stand-alone unit, all the way to a highly
+                    DAWs come in a lot of configurations: from a software program on a laptop, to an integrated stand-alone unit, all the way to a highly
                     complex configuration of numerous components controlled by a central computer. Regardless of configuration, modern DAWs have a central interface that
                     allows the user to alter and mix multiple recordings and tracks into a final produced piece<SmartLink
                         href="/learning/citation#1"
-                    >[1]</SmartLink>. There applications include music, speech, radio, television
-                    and film, soundtracks, podcasts, and basically any field that has audio involved. For the purposes of this project, we will be referring
-                    to DAWs as the software applications that are used to create and edit music.
+                    >[1]</SmartLink>. DAWs have a wide variety of applications including music, speech, radio, television, film, soundtracks, podcasts, and basically any field that involves audio. 
+                    For the purposes of this project, we will be referring to the software application version of DAWs.
                 </Text>
             </Flex>
 
@@ -58,7 +57,7 @@ export default function WhatIsDaw() {
                 <Text
                     variant='body-default-l'
                     padding='16'>
-                    Below are screenshots of some of the most popular DAWsvused today.
+                    Below are screenshots of some of the most popular DAWs used today.
                     Despite some slight variations in the designs, one can see that they share similar functionalities.
                     In addition, these screenshots highlight their heavy reliance on graphical interfaces, which as you can already imagine,
                     pose significant challenges for individuals with visual impairments:

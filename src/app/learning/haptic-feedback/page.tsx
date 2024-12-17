@@ -71,10 +71,10 @@ export default function HapticFeedback() {
             >
                 <Button
                     id="next"
-                    href='/learning/sonification'
+                    href='/learning/ai-assistant'
                     variant="primary">
                     <Flex alignItems="center">
-                        Next: Sonification + Audio Cues
+                        Next: AI Assistant
                         <Arrow trigger="#next" color='onSolid' />
                     </Flex>
                 </Button>

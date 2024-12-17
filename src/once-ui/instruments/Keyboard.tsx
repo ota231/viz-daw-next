@@ -69,8 +69,6 @@ const Keyboard: React.FC = () => {
                     {/* 16 buttons in a row */}
                     <Flex direction="row" gap="4">
                         {Array.from({ length: 4 }).map((_, buttonIndex) => (
-                            console.log(buttonIndex),
-
                             <Button
                                 key={buttonIndex}
                                 onClick={() => { /* handle button click */ }}
