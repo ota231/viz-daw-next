@@ -199,22 +199,6 @@ const Sidebar: React.FC = ({
                         <ToggleButton
                             width="fill"
                             align="start"
-                            href="/learning/sonification"
-                            selected={pathname === '/learning/sonification'}>
-                            <Flex
-                                padding="4" gap="12"
-                                alignItems="center"
-                                textVariant="label-default-s">
-                                <Flex
-                                    height="1" width="16"
-                                    alpha="neutral-strong">
-                                </Flex>
-                                Sonification/Audio Cues
-                            </Flex>
-                        </ToggleButton>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
                             href="/learning/ai-assistant"
                             selected={pathname === '/learning/ai-assistant'}>
                             <Flex
