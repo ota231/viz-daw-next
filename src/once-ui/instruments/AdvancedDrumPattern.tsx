@@ -270,6 +270,30 @@ const AdvancedDrumPattern = () => {
                     <p>{`Amount: ${distortionAmount}`}</p>
                 </Flex>
 
+
+                <Flex direction="column"
+                    alignItems='center'
+                    border='neutral-strong'
+                    borderStyle='solid-1'
+                    padding='8'
+                    margin='8'>
+                    <Text variant="body-default-l">BPM: {bpm}</Text>
+                    <input
+                        type="range"
+                        value={bpm}
+                        min="60"
+                        max="200"
+                        onChange={handleBpmChange}
+                        style={{
+                            width: '80px',
+                            marginTop: '8px',
+                            textAlign: 'center',
+                        }}
+                        aria-label="Beats Per Minute (BPM)"
+                        aria-live='assertive'
+                    />
+                </Flex>
+
             </Flex>
 
             <Flex
@@ -329,7 +353,7 @@ const AdvancedDrumPattern = () => {
                         justifyContent='left'
                         width={3}
                         alignItems='center'
-                        >
+                    >
 
                     </Flex>
                     {Array.from({ length: 16 }).map((_, index) => (
@@ -358,25 +382,6 @@ const AdvancedDrumPattern = () => {
                     >
                         <Icon name={isPlaying ? 'stop' : 'play'} />
                     </Button>
-
-                    <Flex direction="column" marginLeft="16"
-                        alignItems='center'>
-                        <Text variant="body-default-l">BPM: {bpm}</Text>
-                        <input
-                            type="range"
-                            value={bpm}
-                            min="60"
-                            max="200"
-                            onChange={handleBpmChange}
-                            style={{
-                                width: '80px',
-                                marginTop: '8px',
-                                textAlign: 'center',
-                            }}
-                            aria-label="Beats Per Minute (BPM)"
-                            aria-live='assertive'
-                        />
-                    </Flex>
 
                 </Flex>
             </Flex>
