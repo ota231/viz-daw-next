@@ -1,4 +1,5 @@
-import { Flex, Text, SmartLink, Grid, SmartImage, Button, Arrow } from '@/once-ui/components';
+import { Flex, Text, SmartLink, Button, Arrow } from '@/once-ui/components';
+import Image from 'next/image';
 
 export default function HapticFeedback() {
     return (
@@ -30,36 +31,48 @@ export default function HapticFeedback() {
                     as='p'
                     variant='body-default-l'
                     padding='32'>
-                    screen readers still rely on heavy user navigation and/or maybe simplified commands in the case of optimized accessibility scripts
-                    technology that creates a sense of touch or physical sensation through vibration, force, or motion: example is vibration on ur phone when u receive a text. less cognitive overload.
-                    Simulate parameter changes through tactile feedback
-                    most of the interaction with instruments and music production software is digitized, making them more dysnfunctional for visually impaired folks.
+                    Screen readers still often require heavy user navigation or rely on users to remember a host commands provided through accessibility scripts.
+                    This is where haptic technology comes in: it creates a sense of touch or physical sensation through vibration, force, or motion. A common example is the vibration you feel on your phone when you receive a text, which
+                    informs you that you have received a text without any audio or visual stimuli.
+                    Simulating parameter changes through haptic feedback (vibrations) can provide a more intuitive and accessible experience for users.
+                    Thus, this can reduce the cognitive overload from just audio in a DAW.
+                    In music production, haptic technology is more prevalent in academic research, rather than in practice, likely due to the added overhead of requiring separate devices alongside regular software.
 
-                    Evaluating haptic technology in accessibility of digital audio workstations for visual impaired creatives.
-                    - provide visually impaired musicians with a new way of producing music but also will provide academic research on material and technologies that can be used for future accessibility tools
-                    - explore and examine these methods that can potentially lower the barriers of VI musicians and the wider VI community by proposing embodied and immersive haptic-focused accessibility tools.
-                    - aims to identify the haptic feedback techniques that can best convey visually represented audio processing functions and, consequently, to suggest a machine learning algorithm that can enhance a long-term relationship between haptic feedback and VI users
-                    - heavily graphic stuff: how do we represent sound effects such as compressor, reverb and delay in a haptic format that can be better understood
-                    - two part methodology:
-                    1. examine the relationship between the perception of sound, visual interaction on the screen and vibrotactile feedback, how the users are experiencing haptics and the degree to which it can be used as a solution to the discussed problems: lots of physics and sound.
-                    ultimately create mapping of vibration motor to audio effect, for example: panning left center right to 3 vibrations
-                    2. machine learning algotithm that automatically adjusts haptic feedback to audio effect. was initially just proposed here but i am skeptical of it with my knowledge as a computer and data science major. usually requires loads of data
-                    to be of any use and this may not be feasible in this case where there are extremely specific audio functions we are looking at. user interviews and experiments are more reliable.
+                    However, as the music production process has moved away physical interactions with instruments to visual interactions with a computer, it is important to remember that physical stimuli can be a pivotal
+                    part of the music production process, particularly for visually impaired individuals.
 
-                    example reverb: more aspects to it not included, can become very cognitive heavy: Decay Time (Reverb Time)
-                    room, decay, hi-cut, low-cut, bass, cross, damp
-                    https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/plugins/Fruity%20Reeverb%202.htm
-                    off the top of my head: Decay Time → Vibration Duration: Longer reverb tails produce longer vibrations.
-                    Room Size → Vibration Intensity: Larger virtual spaces can increase the strength or "spread" of the haptic feedback.
+                    <br /><br />
 
-                    highly integrable: could be an app on the phone or device that comes with website. but again needs lot of work to actually be useful in industry and go beyond academic research.
+                    In <SmartLink href="/learning/citation#4">[4]</SmartLink>, Karpodini evaluates the use of haptic technology in DAWs. She aims to identify the haptic
+                    feedback techniques that can best convey visually represented audio processing functions and, consequently, to suggest a machine learning algorithm that can enhance a long-term relationship between haptic feedback and visually impaired users.
 
-                    even more mapping done (beyond scope of features we have discussed) in [5]: point estimation in automation graphs, sonification of peak level meters, haptic display of waveform amplitude
+                    This methodology focuses mainly on very graphic elements such as EQ, compressor, reverb. Although my illustration shows some of these features
+                    simply as 1 or 2 knobs, in practice these features tend to have more parameters involved. For example, the image below shows the default reverb plugin in FL Studio.
+                    How do we represent sound effects such as compressor, reverb and delay in a haptic format that can be better understood by visually impaired users? <br /><br />
+                    
+                    Karpodini proposes a two part methodology: <br />
+                    1. Examine the relationship between the perception of sound, visual interaction on the screen and vibrotactile feedback. Ultimately, this would create a mapping of the vibration motor to the audio effect. For example, panning left, center, right to 3 vibrations. <br />
+                    2. Building a machine learning algorithm that automatically adjusts haptic feedback to audio effect. < br />
+                    Karpodini has not built the machine learning algorithm yet, but based on my humble knowledge as a computer and data science undergraduate studet, I am skeptical on the feasibility of this approach.
+                    Machine learning algorithms usually requires loads of diverse data to work with high probability. Given that there are extremely specific audio functions, and not a lot of visually impaired users,
+                    my guess is that laborious user interviews and surveys would yield a more reliable mapping. 
+                    For example, off the top of my head, I can map the room size property of reverb to vibration intensity and the decay time to vibration duration. The audio effects and the vibrations go hand-in-hand<br /><br />
+
+                    Other researchers have also done some mappings, in <SmartLink href="/learning/citation#5">[5]</SmartLink> the following mappings are done: point estimation in automation graphs, sonification of peak level meters, haptic display of waveform amplitude
                 </Text>
             </Flex>
 
             <Flex
+                padding='32'
+                alignItems='center'
                 fillWidth>
+                <Image
+                    src="/images/reeverb2.png"
+                    alt="FL Studio Reeverb"
+                    style={{ borderRadius: '4px' }}
+                    width={795}
+                    height={242}
+                />
             </Flex>
 
 
