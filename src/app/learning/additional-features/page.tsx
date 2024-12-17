@@ -31,11 +31,10 @@ export default function AddMoreStuff() {
                     as='p'
                     variant='body-default-l'
                     padding='32'>
-                    now some more elements that are used to mix/develop the sound
-                    for simplicity knobs, sliders done for entire sequence rather than per instrument
-                    notice how things can become really complex really fast !
-                    omitted tracks, here instruments are kind of like tracks.
-                    more 'graphical' stuff not included because of limitations of tone.js: EQ, compression
+                    In addition to the basic elements for sound creation, instruments, there are other components used to mix and develop 
+                    the sound. Here we add reverb, volume, distortion, panning and BPM (some of these don't 100% work). For simplicity, knobs and sliders were implemented for the entire sequence rather than for each individual instrument. 
+                    You can probably imagine how things get more complicated as we add knobs and sliders per instrument: it becomes more difficult to navigate, even as a cited person. 
+                    More advanced graphical components, such as EQ and compression, were not included due to the limitations of Tone.js.
                 </Text>
             </Flex>
 
