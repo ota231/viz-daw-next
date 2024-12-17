@@ -49,7 +49,16 @@ export default function Bye() {
                     variant='body-default-l'>
                     Tone.Js, tonejs.github.io/. Accessed Dec. 2024.
                 </Text>
-
+                <Text id='7'
+                    as='li'
+                    variant='body-default-l'>
+                    Tools, Flo. “Flo Tools.” Flo Tools – Enhanced Workflow for Pro Tools Users With Visual Impairments, 2020, flotools.org/.
+                </Text>
+                <Text id='8'
+                    as='li'
+                    variant='body-default-l'>
+                    YouTube, Training & Instructional Technology (TInT), Berklee College of Music, 2016, www.youtube.com/watch?v=-Hu_gTnXMzI.
+                </Text>
             </Flex>
         </Flex>
     );

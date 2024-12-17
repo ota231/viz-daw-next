@@ -1,4 +1,4 @@
-import { Flex, Text, SmartLink, Grid, SmartImage, Button, Arrow } from '@/once-ui/components';
+import { Flex, Text, SmartLink, InlineCode, Button, Arrow, SparkleFx } from '@/once-ui/components';
 
 export default function ScreenReaderImproved() {
     return (
@@ -18,7 +18,7 @@ export default function ScreenReaderImproved() {
                     as="h1"
                     variant='heading-strong-xl'
                     align='center'>
-                    How about a less inefficient screen reader?
+                    How about a more efficient screen reader?
                 </Text>
 
             </Flex>
@@ -31,24 +31,54 @@ export default function ScreenReaderImproved() {
                     as='p'
                     variant='body-default-l'
                     padding='32'>
-                    Simple Preview
-                    Flo Tools for Pro Tools: accessiblity script. assistive music technology program for visually impaired students at Berklee College of Music. Give students same opportunities as sighted peers in industry. Developed to improve efficiency and in response to students' frustration.
-                    Slau Halaatyn, a blind student owner and engineer in NYC that has over 20 years of experience with Pro Tools as a blind user describes flo tools as "having a sighted assistant next to me who can take in information, report it to me and execute commands more quickly than I could if I had to navigate the information myself."
-                    Have to act quickly with clients!
-                    commands that report different status : how may tracks are showing? how many tracks are hidden? otherwise done manually by clicking through each and every track
-                    instant access to commands via keyboard shortcuts improves efficiency greatly
-                    commands adopted to my case:
-                    - cmd: list all instruments, reset pan, mute instrument, increase volume, etc
-                    cite flo tootls promo video and flo tools website: https://www.youtube.com/watch?v=-Hu_gTnXMzI, https://flotools.org/
-                    OSARA for REAPER similar to flo tools
+                    Screen readers can be very slow given the amount of things happening in a DAW. However, accessibility scripts have been made to improve the efficiency of workflows while using a screen reader.
+                    The case study of this project will be Flo Tools for Pro Tools. <SmartLink
+                        href="/learning/citation#7"
+                    >[7]</SmartLink> < br />< br />
+                    Flo Tools was created as part of the assistive music technology program for visually impaired students at Berklee College of Music, with the goal of
+                    providing them with the same opportunities as their sighted peers in the industry. Developed in response to students' frustrations, Flo Tools aims to improve
+                    efficiency by streamlining tasks that are often tedious for blind users. Slau Halaatyn, a blind student, owner, and engineer in NYC with over 20 years of experience using
+                    Pro Tools, describes Flo Tools as "having a sighted assistant next to me who can take in information, report it to me, and execute commands more quickly than I could if I had to navigate the
+                    information myself."<SmartLink
+                        href="/learning/citation#8"
+                    >[8]</SmartLink> This capability is particularly crucial in fast-paced environments where quick actions are essential when working with clients. Flo Tools offers commands that report different
+                    statuses, such as how many tracks are visible or hidden, tasks that would otherwise require manually clicking through each track. Instant access to commands via keyboard shortcuts significantly improves efficiency, making the workflow faster and more manageable.
+                    Adapting these keyboard shortcuts to my implementation would involve commands like: < br /><br />
+                    <InlineCode>
+                        ctrl + shift + l = List All Instruments
+                    </InlineCode>
+                    <br />
+                    <InlineCode>
+                        ctrl + alt + i = Reset Pan to Default
+                    </InlineCode>...
+                    <br /><br />
+
                     talk about not having to develop skills because of accessiblity complaints: software choices should be dictated by needs not by accessiblity.
+                </Text>
+            </Flex>
+            <Flex
+                borderStyle='solid-1'
+                radius='s'
+                padding='16'
+                margin='32'
+                width={50}
+                align='right'>
+                <SparkleFx
+                    speed="medium"
+                    count={50}
+                    trigger
+                >
+                    <Text
+                        variant='body-default-s'
+                        onSolid='accent-strong'>
                     "There are two diferent levels of accessibility... The frst
                     one was, like I said, make all the buttons readable to
                     a blind person and to their software. The second one is
                     to make it practical and... where you can be productive
                     and be just as fast as a sighted user, or as fast as possible
-                    compared to a sighted user.” - Aaron def a good step towards the right direction
-                </Text>
+                    compared to a sighted user." - Aaron from [2]
+                    </Text>
+                </SparkleFx>
             </Flex>
 
             <Flex
