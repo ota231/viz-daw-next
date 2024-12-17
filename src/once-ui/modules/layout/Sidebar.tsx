@@ -79,7 +79,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/what-is-daw"
-                            selected={pathname === 'users'}>
+                            selected={pathname === '/learning/what-is-daw'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -95,7 +95,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/simple-preview"
-                            selected={pathname === 'roles'}>
+                            selected={pathname === '/learning/simple-preview'}>
                             <Flex
                                 padding="4"
                                 alignItems="center"
@@ -112,7 +112,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/additional-features"
-                            selected={pathname === 'permissions'}>
+                            selected={pathname === '/learning/additional-features'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -128,7 +128,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/screen-reader"
-                            selected={pathname === 'permissions'}>
+                            selected={pathname === '/learning/screen-reader'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -168,7 +168,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/screen-reader-improved"
-                            selected={pathname === 'overview'}>
+                            selected={pathname === '/learning/screen-reader-improved'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -184,7 +184,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/haptic-feedback"
-                            selected={pathname === 'projects'}>
+                            selected={pathname === '/learning/haptic-feedback'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -200,7 +200,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/sonification"
-                            selected={pathname === 'projects'}>
+                            selected={pathname === '/learning/sonification'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -216,7 +216,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/ai-assistant"
-                            selected={pathname === 'projects'}>
+                            selected={pathname === '/learning/ai-assistant'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -258,7 +258,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/citation"
-                            selected={pathname === 'projects'}>
+                            selected={pathname === '/learning/citation'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
@@ -274,7 +274,7 @@ const Sidebar: React.FC = ({
                             width="fill"
                             align="start"
                             href="/learning/reflection"
-                            selected={pathname === 'projects'}>
+                            selected={pathname === '/learning/reflection'}>
                             <Flex
                                 padding="4" gap="12"
                                 alignItems="center"
