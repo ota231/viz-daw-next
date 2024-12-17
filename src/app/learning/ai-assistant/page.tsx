@@ -49,14 +49,6 @@ export default function AIAssistant() {
                     as='p'
                     variant='body-default-l'
                     padding='32'>
-                  
-                    applied to visually impaired users: if can interpret what's happening in a window then can probably
-                    respond to vocal requests, interact with user efficiently.
-
-                    also should be implemented in such a way that doesnt dull creativity
-                    ai usage harm on the planet
-                    copyright stuff
-
                     Accessibility in DAWs has seen significant advancements, but there may be a lot of potential with the recent advancements in AI.
                     There isn't any published research yet on AI in DAWs, but there have been some snippets of what it could look like in industry software.
                     For example, <SmartLink
